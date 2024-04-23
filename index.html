@@ -18,24 +18,6 @@
     <title>FERRARI</title>
 </head>
 <body>
-<!-- Menu Hamburger (Mobile) -->
-<div class="mobile-navbar">
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-            <ul>
-                <li><a href="#inicio" class="text-white">Início</a></li>
-                <li><a href="#carteira" class="text-white">Carteira</a></li>
-                <li><a href="#unidades" class="text-white">Unidades</a></li>
-                <li><a href="#categorias" class="text-white">Categorias</a></li>
-            </ul>
-        </div>
-    </div>
-    <nav class="navbar navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </nav>
-</div>
 
 <!-- Menu de Navegação (Desktop) -->
 <nav class="desktop-nav">
@@ -50,19 +32,46 @@
 </nav>
 
 <!-- Cabeçalho Principal dentro do Slider -->
+<div class="mobile-navbar">
+    <button class="toggle-button">
+        &#9776; <!-- Símbolo do menu hambúrguer -->
+    </button>
+    <button class="cta-button">
+        Eu quero aproveitar agora
+    </button>
+    <div class="navbar-menu" id="navbarMenu">
+        <button class="close-button">&times;</button> <!-- Botão para fechar o menu -->
+        <div class="menu-content">
+            <a href="/" class="navbar-brand">
+                <img src="path/to/your/logo.png" alt="Logo" style="height: 60px;">
+            </a>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <div class="slider">
     <div class="slide-container">
-        <div class="slide"><img src="IMG/slide1.jpg" alt="Slide 1"></div>
-        <div class="slide"><img src="IMG/slide2.jpg" alt="Slide 2"></div>
+        <div class="slide">
+            <img src="IMG/slide1.jpg" alt="Slide 1">
+            <div class="overlay"></div>
+        </div>
+        <div class="slide">
+            <img src="IMG/slide2.jpg" alt="Slide 2">
+            <div class="overlay"></div>
+        </div>
     </div>
     <div class="slider-overlay">
         <h1>Chegou a hora de conquistar a liberdade!</h1>
         <p>A Auto Escola Ferrari oferece a oportunidade de obter sua carteira de motorista, seja para motos ou carros.</p>
         <button class="action-btn" onclick="location.href='#contato'">Eu quero aproveitar agora</button>
     </div>
-        </div>
 </div>
-
 <!-- Seção de Vantagens -->
 <section class="vantagens">
     <h2>Por que você DEVE escolher a Auto Escola Ferrari?</h2>
@@ -78,7 +87,7 @@
             <div class="icone"> <!-- Ícone será inserido aqui --></div>
             <div class="texto">
                 <h3>Aprender a Dirigir:</h3>
-                <p>É o primeiro passo para conquistar o seu primeiro patrimônio, o seu primeiro veículo, abrindo um mundo de possibilidades. Imagine a liberdade de poder ir onde quiser, quando quiser. Você terá a segurança e a confiança para enfrentar qualquer situação no trânsito, se tornando um condutor preparado e responsável.</p>
+                <p>Adquirir seu primeiro veículo é um marco importante que aumenta sua liberdade, segurança e confiança no trânsito, preparando-o para ser um motorista responsável.</p>
             </div>
         </div>
         <div class="bloco">

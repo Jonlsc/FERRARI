@@ -64,6 +64,12 @@ nav a:hover:not(.action-btn) {
     margin-left: auto;
 }
 
+@media (max-width: 991px) {
+    .action-btn {
+        display: none !important; /* Força a regra a ser aplicada */
+    }
+}
+
 .action-btn:hover {
     background-color: #e6b31c; /* Um tom de dourado mais escuro */
 }
@@ -110,23 +116,110 @@ nav a:hover:not(.action-btn) {
 
 /* Estilos específicos para mobile */
 .mobile-navbar {
-    display: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 20px; /* Ajuste o padding conforme necessário */
+    z-index: 100; /* Garante que o navbar fique na frente da imagem do slide */
 }
 
+.toggle-button, .cta-button {
+    padding: 8px 16px;
+    background-color: gold;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.toggle-button {
+    background: none;
+    color: gold; /* Cor dourada para o ícone */
+    font-size: 1.5em; /* Tamanho do ícone hambúrguer */
+}
+
+/* Estilo para o menu expandido */
+.navbar-menu {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro semi-transparente */
+    z-index: 101; /* Acima do navbar */
+}
+
+.menu-content {
+    text-align: center;
+    padding-top: 60px; /* Espaço para a logo e botão de fechar */
+}
+
+.menu-content .navbar-brand {
+    display: block;
+    margin-bottom: 30px; /* Espaço abaixo da logo */
+}
+
+.menu-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-content ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Media query para ocultar o navbar móvel em telas maiores */
+/* Esconde o navbar móvel em telas maiores que 992px */
+@media (min-width: 992px) {
+    .mobile-navbar {
+        display: none;
+    }
+}
+
+/* Esconde o navbar desktop em telas menores que 992px */
 @media (max-width: 991px) {
     .desktop-nav {
         display: none;
     }
-    .mobile-navbar, .mobile-navbar nav {
-        display: block;
-    }
 }
+
 
 .slider {
     position: relative;
     width: 100%;
     height: 100vh; /* Faz o slider ter a altura total da tela */
     overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1); /* Preto com 50% de opacidade */
+    z-index: 2; /* Inferior ao texto e ao botão */
 }
 
 .slider-overlay {
@@ -137,8 +230,9 @@ nav a:hover:not(.action-btn) {
     text-align: center;
     color: white;
     width: 90%; /* Evita que o texto ultrapasse os limites do slider */
-    padding: 20px;
+    padding: top;
     box-sizing: border-box;
+    z-index: 3;
 }
 
 h1 {
@@ -163,6 +257,7 @@ button {
     }
 
     .slider-overlay h1 {
+        margin-top: 85px;
         font-size: 1.5em; /* Reduz o tamanho do título em dispositivos menores */
     }
 
@@ -191,6 +286,7 @@ button {
 
     .slider-overlay button {
         font-size: 0.8em;
+        margin: 0 auto;
     }
 }
 
@@ -222,6 +318,7 @@ button {
     display: block; /* Remove espaço abaixo da imagem */
 }
 
+
 h1 {
     font-size: 2.1em;
     margin-bottom: 0.5em;
@@ -242,6 +339,7 @@ button {
     cursor: pointer;
     
 }
+
 
 button:hover {
     background-color: darken(gold, 10%);
@@ -277,24 +375,27 @@ button:hover {
     box-sizing: border-box; /* Garante que padding e border não adicionem à largura definida */
     box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Alinha ao topo */
     justify-content: space-between;
     background-color: #ffffff; /* Cor branca para os blocos */
     margin-bottom: 15px;
 }
 
+
+
 .icone {
-    width: 25%;
+    width: 25%; /* Definir largura do ícone */
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center; /* Mantém o ícone centralizado verticalmente */
 }
 
 .texto {
     width: 75%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: flex-start; /* Alinha o conteúdo ao início horizontalmente */
+    justify-content: flex-start; /* Alinha o conteúdo ao topo verticalmente */
     text-align: left; /* Alinha o texto à esquerda */
 }
 
@@ -309,14 +410,42 @@ button:hover {
     margin: 0; /* Remove margens para compactar o texto */
 }
 
-@media (min-width: 992px) {
-    .mobile-navbar {
-        display: none; /* Oculta a barra de navegação móvel em telas grandes */
+.final-texto {
+    font-family: 'Roboto', sans-serif; /* Usando a mesma fonte Roboto */
+    font-weight: 700; /* Mais grosso do que o semibold */
+    margin-top: 50px; /* Aumentar o espaçamento para 50px */
+    font-size: 1.6em; /* Aumentar o tamanho do fonte se necessário */}
+
+@media (max-width: 768px) {
+    .bloco {
+        flex: 0 0 100%; /* Faz os blocos cobrirem quase toda a largura da tela */
+        height: 280px; /* Aumenta a altura dos blocos para ficarem mais cumpridos */
+        margin: 10px 1%; /* Ajusta margem para melhor espaçamento */
+        align-items: flex-start; /* Alinha ao topo */
+    }
+
+    .icone {
+        width: 30%; /* Largura horizontal reservada para o ícone */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .texto {
+        width: 70%; /* O texto ocupa o resto do espaço horizontal */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Alinha o conteúdo ao início horizontalmente */
+        justify-content: flex-start; /* Alinha o conteúdo ao topo verticalmente */
+    }
+
+    .texto h3 {
+        font-weight: bold; /* Torna o título em negrito */
+        text-align: left; /* Mantém o texto alinhado à esquerda */
+    }
+
+    .texto p {
+        text-align: left; /* Mantém o texto alinhado à esquerda */
     }
 }
 
-@media (max-width: 991px) {
-    nav, .logo, ul, .action-btn {
-        display: block; /* Muda para display block para forçar uma disposição em coluna */
-    }
-}  

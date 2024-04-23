@@ -11,5 +11,18 @@ document.addEventListener('DOMContentLoaded', function() {
         slides[currentIndex].classList.add('active'); // Adiciona a classe ativa ao novo slide
     }
 
-    setInterval(changeSlide, 10000); // Muda o slide a cada 5 segundos
+    setInterval(changeSlide, 10000); // Muda o slide a cada 10 segundos
+
+    // Adicionando funcionalidades do menu hambúrguer
+    var toggleButton = document.querySelector('.toggle-button');
+    var navbarMenu = document.getElementById('navbarMenu');
+    var closeButton = document.querySelector('.close-button');
+
+    toggleButton.addEventListener('click', function() {
+        navbarMenu.style.display = navbarMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    closeButton.addEventListener('click', function() {
+        navbarMenu.style.display = 'none';
+    });
 });
